@@ -58,6 +58,5 @@ form.addEventListener('submit', (e) => {
     perror.style.color = "#199719"
     perror.style.fontSize = "20px"
     password.style.border = "2px solid #199719";
-    //window.alert('Succes')
     }
 })
