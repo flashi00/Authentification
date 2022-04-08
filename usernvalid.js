@@ -12,9 +12,11 @@ localStorage.setItem('User4@gmail.com', "mypassw4")
 function usernameIsValid(username) {
     return /^[a-zA-Z][0-9a-zA-Z_.-]+@gmail.com+$/.test(username);
 }
-form.addEventListener('submit', (e) => {
+$(form).on('submit', (e) => {
     let messages = []
     let pmessages = []
+
+    ///Username conditions
     if (username.value == '') {
         messages.push("username is required")
     }
@@ -25,6 +27,7 @@ form.addEventListener('submit', (e) => {
         }
     }
 
+    ///Password conditions
     if (password.value == '') {
         pmessages.push("password is required")
     }
@@ -51,12 +54,15 @@ form.addEventListener('submit', (e) => {
         e.preventDefault()
         perror.innerHTML = pmessages.join(', ')
         password.style.border = "2px solid #ff3860"
+        $(perror).addClass("error");
+        perror.style.color = " #ff3860"
+        perror.style.fontSize = "13px"
     } else {
         e.preventDefault()
 
-    perror.innerHTML = 'Success'
-    perror.style.color = "#199719"
-    perror.style.fontSize = "20px"
-    password.style.border = "2px solid #199719";
+        perror.innerHTML = 'Success'
+        perror.style.color = "#199719"
+        perror.style.fontSize = "20px"
+        password.style.border = "2px solid #199719";
     }
 })
